@@ -133,8 +133,8 @@ public class MyDragHelperView extends RelativeLayout {
 
 //            1-云台转上 、2-云台转下 、3-云台转左 、4-云台转右、 11-云台左上 、12-云台右上 13-云台左下 、14-云台右下、7-镜头拉近、8-镜头拉远、9-镜头近焦、10-镜头远焦
             if(isStartMove) {//手势按下
-                if (wdy < -100) {  //向  左上  上  右上 某个方向移动
-                    if ((wdx > -190 && wdx < 190)) {
+                if (wdy < -50) {  //向  左上  上  右上 某个方向移动
+                    if ((wdx > -150 && wdx < 150)) {
                         if (Math.abs(dx) > 60 || Math.abs(dy) > 60) {//如果dx dy中有一个移动很快 说明只是用户一直在滑动  不需要处理
                             Log.d("hjo", "  滑动太快不处理！ ");
                         } else {//   1-云台转上
@@ -142,7 +142,9 @@ public class MyDragHelperView extends RelativeLayout {
                                 mindex=1;
                                 setOnlyDirection(Top);
                                 showToast("向上转动");
-                                Log.d("hjo", " 向上转动mindex="+mindex);
+                                Log.e("hjo", " 上转动 ");
+                                Log.e("hjo","相对位移  wdx =" +wdx+"  wdy= "+wdy );
+                                Log.e("hjo","当前view的位置：  left="+left +"  top="+top+"  dx="+dx+"   dy="+dy);
                             }
                         }
                     } else {
@@ -152,6 +154,9 @@ public class MyDragHelperView extends RelativeLayout {
                                 setOnlyDirection(TopLeft);
                                 showToast("左上转动");
                                 Log.e("hjo", " 左上转动 ");
+                                Log.e("hjo","相对位移  wdx =" +wdx+"  wdy= "+wdy );
+                                Log.e("hjo","当前view的位置：  left="+left +"  top="+top+"  dx="+dx+"   dy="+dy);
+
                             }
                         } else { //12-云台右上
                             if (!mDirection.get(TopRight)) {
@@ -159,13 +164,15 @@ public class MyDragHelperView extends RelativeLayout {
                                 mindex=12;
                                 setOnlyDirection(TopRight);
                                 Log.d("hjo", " 右上转动  ");
+                                Log.e("hjo","相对位移  wdx =" +wdx+"  wdy= "+wdy );
+                                Log.e("hjo","当前view的位置：  left="+left +"  top="+top+"  dx="+dx+"   dy="+dy);
                             }
                         }
                     }
                 }
                 //向下移动  左下  下  右下
-                else if (wdy > 100) {
-                    if ((wdx > -190 && wdx < 190)) { // 2-云台转下
+                else if (wdy > 50) {
+                    if ((wdx > -150 && wdx < 150)) { // 2-云台转下
                         if (Math.abs(dx) > 60 || Math.abs(dy) > 60) {//如果dx dy中有一个移动很快 说明只是用户一直在滑动  不需要处理
                             Log.e("hjo", "  滑动太快不处理！ ");
                         } else {//向上移动
@@ -173,7 +180,7 @@ public class MyDragHelperView extends RelativeLayout {
                                 mindex=2;
                                 setOnlyDirection(Bottom);
                                 showToast("向下转动");
-                                Log.d("hjo", " 向下转动");
+//                                Log.d("hjo", " 向下转动");
                             }
                         }
 
@@ -183,14 +190,14 @@ public class MyDragHelperView extends RelativeLayout {
                                 mindex=13;
                                 setOnlyDirection(BottomLeft);
                                 showToast("左下转动");
-                                Log.d("hjo", " 左下转动 ");
+//                                Log.d("hjo", " 左下转动 ");
                             }
                         } else { //14-云台右下
                             if (!mDirection.get(BottomRight)) {
                                 showToast("右下转动");
                                 mindex=14;
                                 setOnlyDirection(BottomRight);
-                                Log.d("hjo", " 右下转动  ");
+//                                Log.d("hjo", " 右下转动  ");
                             }
                         }
                     }
@@ -203,14 +210,14 @@ public class MyDragHelperView extends RelativeLayout {
                             showToast("左转动");
                             mindex=3;
                             setOnlyDirection(Left);
-                            Log.d("hjo", " 左转动  ");
+//                            Log.d("hjo", " 左转动  ");
                         }
                     }else if(wdx>80){   //  4-云台转右
                         if (!mDirection.get(Right)) {
                             showToast("右转动");
                             mindex=4;
                             setOnlyDirection(Right);
-                            Log.d("hjo", " 右转动  ");
+//                            Log.d("hjo", " 右转动  ");
                         }
                     }
 
