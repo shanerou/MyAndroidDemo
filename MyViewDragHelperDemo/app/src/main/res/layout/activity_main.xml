@@ -7,9 +7,10 @@
    >
 
     <com.hjo.MyViewDragHelperDemo.MyDragHelperView
+        android:id="@+id/myDragHelperView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/bg"
         >
 
