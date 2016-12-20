@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <declare-styleable name="TimeSurfaceView">
+       <attr name="bgColor" format="color"/>
+       <attr name="hadDataColor" format="color"/>
+       <attr name="timePointerColor" format="color"/>
+       <attr name="scaleColor" format="color"/>
+       <attr name="timeTextColor" format="color"/>
+   </declare-styleable>
+
+
+</resources>
