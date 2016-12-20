@@ -2,9 +2,11 @@ package com.hjo.scrolltime;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.SurfaceHolder;
@@ -28,7 +30,9 @@ public class TimeSurfaceView extends View{
     int hadDataColor; //有数据的时间点颜色
     int mtextTimeColor; //刻度时间字体颜色
 
-
+    private int mScaleWidth;//每个小时的刻度长度
+    private RectF mrectf;
+    private boolean isDraw=false;
 
 
     public TimeSurfaceView(Context context) {
@@ -50,7 +54,14 @@ public class TimeSurfaceView extends View{
 
         init();
     }
+    private void  init(){
+        mpaint=new Paint();
+        mpaint.setAntiAlias(true);
+        mpaint.setStyle(Paint.Style.STROKE);
+        mScaleWidth=this.getWidth()/8;//一次显示8个刻度
+        mrectf=new RectF(0,0,mScaleWidth*24,this.getBottom());//画24小时的背景区域
 
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -69,20 +80,41 @@ public class TimeSurfaceView extends View{
         }else{
             mViewHeight=(int)(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,90,getResources().getDisplayMetrics()));
         }
+
         setMeasuredDimension(mViewWidth,mViewHeight);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-
     }
 
-    private void  init(){
+    /**
+     * 画24小时背景区域
+     * @param canvas
+     */
+    private  void drawBg(Canvas canvas){
+        mpaint.setColor(mbgColor);
+        canvas.drawRect(mrectf,mpaint);
+    }
 
-        mpaint=new Paint();
-        mpaint.setAntiAlias(true);
-        mpaint.setStyle(Paint.Style.STROKE);
+    private void drawScale(Canvas canvas){
+        mpaint.setColor(mscaleColor);
+        canvas.drawLine(0,(float) (this.getHeight()*0.9),mScaleWidth*24,(float)(getHeight()*0.9),mpaint);//画底部线
+        for(int i=0; i<240;i++){ //24 * 10
+            if (i/)
+
+        }
+    }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if(!isDraw){//只需绘制一次就好
+            drawBg(canvas);
+            isDraw=true;
+        }
 
     }
 }
