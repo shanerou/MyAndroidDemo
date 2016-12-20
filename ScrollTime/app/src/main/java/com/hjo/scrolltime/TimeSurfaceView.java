@@ -102,7 +102,10 @@ public class TimeSurfaceView extends View{
         mpaint.setColor(mscaleColor);
         canvas.drawLine(0,(float) (this.getHeight()*0.9),mScaleWidth*24,(float)(getHeight()*0.9),mpaint);//画底部线
         for(int i=0; i<240;i++){ //24 * 10
-            if (i/)
+            if (i/){
+
+            }
+
 
         }
     }
