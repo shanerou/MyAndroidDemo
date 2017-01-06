@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mScalableTimebarView.initTimebarLengthAndPosition(timebarLeftEndPointTime, timebarRightEndPointTime, timabarCursorCurrentTime);// 设置显示的开始时间和结束时间
 
+
         List<RecordDataExistTimeSegment> recordDataList = new ArrayList<>();
 //        recordDataList.add(new RecordDataExistTimeSegment(currentRealDateTime - ONE_DAY_IN_MS, currentRealDateTime - ONE_DAY_IN_MS + ONE_MINUTE_IN_MS * 32));
 //        recordDataList.add(new RecordDataExistTimeSegment(currentRealDateTime - ONE_DAY_IN_MS + 18 * ONE_HOUR_IN_MS, currentRealDateTime - ONE_DAY_IN_MS + 18 * ONE_HOUR_IN_MS + ONE_MINUTE_IN_MS * 32));
