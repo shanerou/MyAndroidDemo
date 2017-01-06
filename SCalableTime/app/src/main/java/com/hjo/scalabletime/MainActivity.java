@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calendar.set(Calendar.MILLISECOND,0);
         long entttime=calendar.getTimeInMillis();
 
+
 //        long timebarRightEndPointTime = currentRealDateTime + 3 * ONE_HOUR_IN_MS;
         long timebarRightEndPointTime =entttime  ;
 //        long timebarLeftEndPointTime = timebarRightEndPointTime - recordDays * ONE_DAY_IN_MS;
